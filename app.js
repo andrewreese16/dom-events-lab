@@ -31,6 +31,7 @@ calculator.addEventListener("click", (event) => {
     updateDisplay();
   }
 });
+
 /*-------------------------------- Functions --------------------------------*/
 function updateDisplay() {
   displayEl.textContent = firstOperand;
