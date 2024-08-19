@@ -7,16 +7,16 @@
 // As a user, I want to be able to clear all operations and start from 0.
 
 /*-------------------------------- Constants --------------------------------*/
-const buttons = document.querySelectorAll(".button");
-const calculator = document.querySelector("#calculator");
-const displayEl = document.querySelector(".display");
+
 /*-------------------------------- Variables --------------------------------*/
 let firstOperand = "";
 let secondOperand = "";
 let currentOperation = null;
 let shouldResetDisplay = false;
 /*------------------------ Cached Element References ------------------------*/
-
+const buttons = document.querySelectorAll(".button");
+const calculator = document.querySelector("#calculator");
+const displayEl = document.querySelector(".display");
 /*----------------------------- Event Listeners -----------------------------*/
 calculator.addEventListener("click", (event) => {
   if (!event.target.classList.contains("button")) return;
