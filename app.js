@@ -6,17 +6,17 @@
 // As a user, I want to be able to see the output of the mathematical operation.
 // As a user, I want to be able to clear all operations and start from 0.
 
-/*-------------------------------- Constants --------------------------------*/
 
-/*-------------------------------- Variables --------------------------------*/
-let firstOperand = "";
+let firstOperand = "0"; 
 let secondOperand = "";
 let currentOperation = null;
 let shouldResetDisplay = false;
+
 /*------------------------ Cached Element References ------------------------*/
 const buttons = document.querySelectorAll(".button");
 const calculator = document.querySelector("#calculator");
 const displayEl = document.querySelector(".display");
+
 /*----------------------------- Event Listeners -----------------------------*/
 calculator.addEventListener("click", (event) => {
   if (!event.target.classList.contains("button")) return;
@@ -42,7 +42,12 @@ function appendNumber(number) {
     firstOperand = "";
     shouldResetDisplay = false;
   }
-  firstOperand += number;
+  
+  if (firstOperand === "0" && number !== ".") {
+    firstOperand = number;
+  } else {
+    firstOperand += number;
+  }
 }
 
 function setOperation(operation) {
@@ -82,9 +87,12 @@ function evaluate() {
 }
 
 function clearCalculator() {
-  firstOperand = "";
+  firstOperand = "0"; 
   secondOperand = "";
   currentOperation = null;
   shouldResetDisplay = false;
   updateDisplay();
 }
+
+
+updateDisplay();
